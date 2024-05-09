@@ -57,7 +57,7 @@ async function sprintChallenge5() { // Note the async keyword so you can use `aw
          
           for (let k = 0; k < mentors.length; k++){
             if(mentors[k].id === currentMentorId) {
-              mentorNames.push(`${mentors[k].firstName} ${mentors[k].lastName} `)
+              mentorNames.push(`${mentors[k].firstName} ${mentors[k].lastName}`)
             }
           }          
         }
@@ -94,8 +94,8 @@ async function sprintChallenge5() { // Note the async keyword so you can use `aw
     const mentorsHeading = document.createElement('h4')
     const mentorsList = document.createElement('ul')
 
-    const fullName = learner.fullName // full name of learner
-    const emailLink =  learner.email // email of leaner
+    const fullName = learner.fullName 
+    const emailLink =  learner.email 
     
     heading.textContent = `${fullName}`;
     email.textContent = `${emailLink}`;
@@ -108,7 +108,7 @@ async function sprintChallenge5() { // Note the async keyword so you can use `aw
     cardsContainer.appendChild(card);
     card.classList.add('card');
     
-    const mentorListNames = learner.mentors // array of mentor names
+    const mentorListNames = learner.mentors 
     mentorsHeading.textContent = "Mentors";
     
     mentorListNames.forEach(name => {
