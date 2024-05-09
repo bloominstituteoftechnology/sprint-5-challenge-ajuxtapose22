@@ -117,10 +117,12 @@ async function sprintChallenge5() { // Note the async keyword so you can use `aw
       mentorsList.appendChild(eachMentor);
     });
 
-    card.forEach(div => {
-      div.removeAttribute('data-full-name');
-    })
+   const removeAttribute = document.querySelectorAll('[data-full-name]');
+   removeAttribute.forEach(attribute => {
+    attribute.removeAttribute('data-full-name');
+   });
     
+  
     mentorsHeading.classList.add("closed");
     
    
