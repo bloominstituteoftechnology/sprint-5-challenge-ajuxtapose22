@@ -42,23 +42,27 @@ async function sprintChallenge5() { // Note the async keyword so you can use `aw
 
   for (let i = 0; i < learners.length; i++) {
     let currentLearner = learners[i];
+    let modifiedLearners = {...currentLearner}
     let mentorNames = [];
-    
+        
     for (let j = 0; j < currentLearner.mentors.length; j++) {
       let currentMentorId = currentLearner.mentors[j]
-      console.log(currentLearner.mentors[j]);
+   
       
       for (let k = 0; k < mentors.length; k++) {
+     
+      
         if (mentors[k].id === currentMentorId) {
           mentorNames.push(`${mentors[k].firstName} ${mentors[k].lastName}`)
         }
       }
     }
-    // modifiedLearner.mentors = mentorNames;
-    // newLearners.push(modifiedLearner);
+    modifiedLearners.mentors = mentorNames;    
+    newLearners.push(modifiedLearners);
   }
-
-  // learners = newLearners;
+  learners = newLearners;
+  console.log(learners);
+  
 
   // 👆 ==================== TASK 2 END ====================== 👆
 
@@ -100,17 +104,18 @@ async function sprintChallenge5() { // Note the async keyword so you can use `aw
 
     const mentorListNames = learner.mentors
     mentorsHeading.textContent = "Mentors";
-
+    
     mentorListNames.forEach(name => {
       let eachMentor = document.createElement('li');
       eachMentor.textContent = `${name}`;
       mentorsList.appendChild(eachMentor);
+     
     });
 
-    const removeAttribute = document.querySelectorAll('[data-full-name]');
-    removeAttribute.forEach(attribute => {
-      attribute.removeAttribute('data-full-name');
-    });
+    // const removeAttribute = document.querySelectorAll('[data-full-name]');
+    // removeAttribute.forEach(attribute => {
+    //   attribute.removeAttribute('data-full-name');
+    // });
 
     mentorsHeading.classList.add("closed");
 
