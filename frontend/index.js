@@ -61,8 +61,7 @@ async function sprintChallenge5() { // Note the async keyword so you can use `aw
     newLearners.push(modifiedLearners);
   }
   learners = newLearners;
-  console.log(learners);
-  
+   
 
   // 👆 ==================== TASK 2 END ====================== 👆
 
@@ -90,7 +89,6 @@ async function sprintChallenge5() { // Note the async keyword so you can use `aw
 
     const fullName = learner.fullName
     const emailLink = learner.email
-
     heading.textContent = `${fullName}`;
     email.textContent = `${emailLink}`;
 
@@ -111,12 +109,6 @@ async function sprintChallenge5() { // Note the async keyword so you can use `aw
       mentorsList.appendChild(eachMentor);
      
     });
-
-    // const removeAttribute = document.querySelectorAll('[data-full-name]');
-    // removeAttribute.forEach(attribute => {
-    //   attribute.removeAttribute('data-full-name');
-    // });
-
     mentorsHeading.classList.add("closed");
 
 
