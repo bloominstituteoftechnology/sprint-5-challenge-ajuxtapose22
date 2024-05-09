@@ -9,16 +9,14 @@ async function sprintChallenge5() { // Note the async keyword so you can use `aw
   // ❗ Use the variables `mentors` and `learners` to store the data.
   // ❗ Use the await keyword when using axios.
 
-  let mentors = [] 
-  let learners = [] 
-  
+  let mentors = []
+  let learners = []
+
   try {
     const response = await axios.get('http://localhost:3003/api/learners');
     learners = response.data;
-
     const response2 = await axios.get('http://localhost:3003/api/mentors');
     mentors = response2.data;
-
   } catch (error) {
     console.error('Error fetching data:', error);
   }
@@ -39,36 +37,27 @@ async function sprintChallenge5() { // Note the async keyword so you can use `aw
   //     "Grace Hopper"
   //   ]`
   // }
- 
-      let newLearners = [];
 
-      for (let i = 0; i < learners.length; i++){
-       //Get the learner object
-        let currentLearner = learners[i];
-        //Create a copy to change later for newLearners array
-        let modifiedLearner = {...currentLearner};
-        // console.log(newLearners);
-        let mentorNames = [];
+  let newLearners = [];
 
-        for (let j = 0; j < currentLearner.mentors.length; j++){
-          // Get the Learners Mentors Id Number
-          let currentMentorId = currentLearner.mentors[j]
-          // console.log(currentMentorId);
-         
-          for (let k = 0; k < mentors.length; k++){
-            if(mentors[k].id === currentMentorId) {
-              mentorNames.push(`${mentors[k].firstName} ${mentors[k].lastName}`)
-            }
-          }          
+  for (let i = 0; i < learners.length; i++) {
+    let currentLearner = learners[i];
+    let mentorNames = [];
+
+    for (let j = 0; j < currentLearner.mentors.length; j++) {
+      let currentMentorId = currentLearner.mentors[j]
+
+      for (let k = 0; k < mentors.length; k++) {
+        if (mentors[k].id === currentMentorId) {
+          mentorNames.push(`${mentors[k].firstName} ${mentors[k].lastName}`)
         }
-        modifiedLearner.mentors = mentorNames;
-        newLearners.push(modifiedLearner);
-        // console.log(newLearners[1]);
       }
-    
-      learners = newLearners;
-      // console.log(learners);
+    }
+    modifiedLearner.mentors = mentorNames;
+    newLearners.push(modifiedLearner);
+  }
 
+  learners = newLearners;
 
   // 👆 ==================== TASK 2 END ====================== 👆
 
@@ -94,12 +83,12 @@ async function sprintChallenge5() { // Note the async keyword so you can use `aw
     const mentorsHeading = document.createElement('h4')
     const mentorsList = document.createElement('ul')
 
-    const fullName = learner.fullName 
-    const emailLink =  learner.email 
-    
+    const fullName = learner.fullName
+    const emailLink = learner.email
+
     heading.textContent = `${fullName}`;
     email.textContent = `${emailLink}`;
-    
+
     card.appendChild(heading);
     card.appendChild(email);
     card.appendChild(mentorsHeading);
@@ -107,31 +96,23 @@ async function sprintChallenge5() { // Note the async keyword so you can use `aw
     card.dataset.fullName = learner.fullName;
     cardsContainer.appendChild(card);
     card.classList.add('card');
-    
-    const mentorListNames = learner.mentors 
+
+    const mentorListNames = learner.mentors
     mentorsHeading.textContent = "Mentors";
-    
+
     mentorListNames.forEach(name => {
       let eachMentor = document.createElement('li');
       eachMentor.textContent = `${name}`;
       mentorsList.appendChild(eachMentor);
     });
 
-   const removeAttribute = document.querySelectorAll('[data-full-name]');
-   removeAttribute.forEach(attribute => {
-    attribute.removeAttribute('data-full-name');
-   });
-    
-  
-    mentorsHeading.classList.add("closed");
-    
-   
+    const removeAttribute = document.querySelectorAll('[data-full-name]');
+    removeAttribute.forEach(attribute => {
+      attribute.removeAttribute('data-full-name');
+    });
 
-    // card.addEventListener('click', evt => {
-      
-    // });
-  
-       
+    mentorsHeading.classList.add("closed");
+
 
     // 👆 ==================== TASK 3 END ====================== 👆
 
