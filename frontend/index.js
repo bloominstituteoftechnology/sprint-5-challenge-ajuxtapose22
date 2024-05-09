@@ -109,13 +109,18 @@ async function sprintChallenge5() { // Note the async keyword so you can use `aw
     card.classList.add('card');
     
     const mentorListNames = learner.mentors // array of mentor names
+    mentorsHeading.textContent = "Mentors";
+    
     mentorListNames.forEach(name => {
       let eachMentor = document.createElement('li');
       eachMentor.textContent = `${name}`;
       mentorsList.appendChild(eachMentor);
     });
 
-    mentorsHeading.textContent = " Mentors";
+    card.forEach(div => {
+      div.removeAttribute('data-full-name');
+    })
+    
     mentorsHeading.classList.add("closed");
     
    
