@@ -96,24 +96,33 @@ async function sprintChallenge5() { // Note the async keyword so you can use `aw
 
     const fullName = learner.fullName // full name of learner
     const emailLink =  learner.email // email of leaner
-    const mentorListNames = learner.mentors // array of mentor names
-   
+    
     heading.textContent = `${fullName}`;
     email.textContent = `${emailLink}`;
-    mentorsHeading.textContent = "Mentors";
+    
     card.appendChild(heading);
     card.appendChild(email);
     card.appendChild(mentorsHeading);
-
     card.appendChild(mentorsList);
     card.dataset.fullName = learner.fullName;
     cardsContainer.appendChild(card);
-     
     card.classList.add('card');
-
-    card.addEventListener('click', evt => {
-      
+    
+    const mentorListNames = learner.mentors // array of mentor names
+    mentorListNames.forEach(name => {
+      let eachMentor = document.createElement('li');
+      eachMentor.textContent = `${name}`;
+      mentorsList.appendChild(eachMentor);
     });
+
+    mentorsHeading.textContent = " Mentors";
+    mentorsHeading.classList.add("closed");
+    
+   
+
+    // card.addEventListener('click', evt => {
+      
+    // });
   
        
 
