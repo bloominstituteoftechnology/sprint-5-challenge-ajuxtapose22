@@ -43,21 +43,22 @@ async function sprintChallenge5() { // Note the async keyword so you can use `aw
   for (let i = 0; i < learners.length; i++) {
     let currentLearner = learners[i];
     let mentorNames = [];
-
+    
     for (let j = 0; j < currentLearner.mentors.length; j++) {
       let currentMentorId = currentLearner.mentors[j]
-
+      console.log(currentLearner.mentors[j]);
+      
       for (let k = 0; k < mentors.length; k++) {
         if (mentors[k].id === currentMentorId) {
           mentorNames.push(`${mentors[k].firstName} ${mentors[k].lastName}`)
         }
       }
     }
-    modifiedLearner.mentors = mentorNames;
-    newLearners.push(modifiedLearner);
+    // modifiedLearner.mentors = mentorNames;
+    // newLearners.push(modifiedLearner);
   }
 
-  learners = newLearners;
+  // learners = newLearners;
 
   // 👆 ==================== TASK 2 END ====================== 👆
 
